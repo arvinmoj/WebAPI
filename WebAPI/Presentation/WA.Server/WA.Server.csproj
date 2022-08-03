@@ -14,7 +14,7 @@
     <ProjectReference Include="..\..\WA.Data\WA.Data.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
-    <ProjectReference Include="..\..\WA.Data\WA.DataService\WA.DataService.csproj">
+    <ProjectReference Include="..\..\Infrastructure\WA.DataService\WA.DataService.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
   </ItemGroup>

@@ -1,4 +1,4 @@
-namespace WA.Domain.Entity.Base;
+namespace WA.Domain.Models.Base;
 
 public class BaseEntity : Object
 {

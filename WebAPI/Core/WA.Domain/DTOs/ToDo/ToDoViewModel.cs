@@ -1,4 +1,4 @@
-namespace WA.Domain.DTO.ToDo;
+namespace WA.Domain.DTOs.ToDo;
 
 public class ToDoViewModel : Base.BaseViewModel
 {
@@ -8,6 +8,6 @@ public class ToDoViewModel : Base.BaseViewModel
 
     public string? Title { get; set; }
     public string? Description { get; set; }
-    public Enumeration.ToDo.States? State { get; set; }
+    public Enumerations.ToDo.States? State { get; set; }
 
 }

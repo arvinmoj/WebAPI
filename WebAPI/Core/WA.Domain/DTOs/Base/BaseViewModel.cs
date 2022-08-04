@@ -1,4 +1,4 @@
-namespace WA.Domain.DTO.Base
+namespace WA.Domain.DTOs.Base
 {
     public class BaseViewModel : Object
     {

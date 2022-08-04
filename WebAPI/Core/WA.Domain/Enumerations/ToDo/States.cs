@@ -1,4 +1,4 @@
-namespace WA.Domain.Enumeration.ToDo;
+namespace WA.Domain.Enumerations.ToDo;
 
 public enum States
 {

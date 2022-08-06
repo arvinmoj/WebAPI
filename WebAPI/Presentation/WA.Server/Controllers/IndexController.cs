@@ -1,3 +1,4 @@
+using WA.Domain.Models.ToDo;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WA.API.Controllers;
@@ -17,5 +18,15 @@ public class IndexController : ControllerBase
     public IActionResult Get()
     {
         return Ok();
+    }
+
+    //[HttpPost]
+    [HttpPost(template: "CheckValidation")]
+    public IActionResult CheckValidation([FromBody] ToDoModel todo)
+    {
+        string message =
+            $"Title: , {todo.Title}!";
+
+        return Ok(value: message);
     }
 }

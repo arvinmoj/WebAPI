@@ -1,8 +1,8 @@
-namespace WA.Domain.Models.Base;
+namespace WA.Domain.Models.ToDo;
 
-public class ToDo : BaseEntity
+public class ToDoModel : Base.BaseEntity
 {
-    public ToDo() : base()
+    public ToDoModel() : base()
     {
     }
 

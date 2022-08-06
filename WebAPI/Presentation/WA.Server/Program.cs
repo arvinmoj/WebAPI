@@ -1,8 +1,22 @@
+using AutoMapper;
 using FluentValidation.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+# region Mapper Configuration
+var config = new MapperConfiguration(cfg =>
+{
+    cfg.AddProfile(new WA.Domain.Mappings.ToDo.ToDoProfile());
+});
+
+var mapper = config.CreateMapper();
+# endregion / Mapper Configuration
+
+# region Add services to the container
+// Auto Mapper
+builder.Services.AddSingleton(mapper);
+
+// Fluent Validation 
 builder.Services.AddControllers()
     .AddFluentValidation(current =>
                 {
@@ -14,6 +28,9 @@ builder.Services.AddControllers()
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+# endregion / Add services to the container
+
+# region App Run and Setting 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -30,3 +47,4 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+# endregion

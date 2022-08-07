@@ -8,6 +8,5 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Core\WA.Domain\WA.Domain.csproj" />
-    <ProjectReference Include="..\..\Presentation\WA.Server\WA.Server.csproj" />
   </ItemGroup>
 </Project>

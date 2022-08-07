@@ -14,4 +14,21 @@
     <PackageReference Include="AutoMapper" Version="11.0.1" />
     <PackageReference Include="FluentValidation" Version="11.1.0" />
   </ItemGroup>
+  <ItemGroup>
+    <None Remove="Resources\ToDo\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\ToDo\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\ToDo\ToDoResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ToDoResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Resources\ToDo\ToDoResources.Designer.cs">
+      <DependentUpon>ToDoResources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
 </Project>

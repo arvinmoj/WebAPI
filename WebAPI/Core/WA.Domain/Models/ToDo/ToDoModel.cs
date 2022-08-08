@@ -10,11 +10,11 @@ public class ToDoModel : Base.BaseEntity
 
     [Display(ResourceType = typeof(Resources.ToDoResources),
             Name = nameof(Resources.ToDoResources.Title))]
-    public string? Title { get; set; }
+    public string Title { get; set; }
 
     [Display(ResourceType = typeof(Resources.ToDoResources),
         Name = nameof(Resources.ToDoResources.Description))]
-    public string? Description { get; set; }
+    public string Description { get; set; }
 
     [Display(ResourceType = typeof(Resources.ToDoResources),
         Name = nameof(Resources.ToDoResources.State))]

@@ -10,11 +10,11 @@ public class ToDoViewModel : Base.BaseViewModel
 
     [Display(ResourceType = typeof(Resources.ToDoResources),
                Name = nameof(Resources.ToDoResources.Title))]
-    public string? Title { get; set; }
+    public string Title { get; set; }
 
     [Display(ResourceType = typeof(Resources.ToDoResources),
            Name = nameof(Resources.ToDoResources.Title))]
-    public string? Description { get; set; }
+    public string Description { get; set; }
 
     [Display(ResourceType = typeof(Resources.ToDoResources),
            Name = nameof(Resources.ToDoResources.Title))]

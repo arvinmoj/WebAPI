@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace WA.Domain.Models.ToDo;
+namespace Models;
 
 public class ToDoModel : Base.BaseEntity
 {

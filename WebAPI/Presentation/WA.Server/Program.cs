@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 # region Mapper Configuration
 var config = new MapperConfiguration(cfg =>
 {
-    cfg.AddProfile(new WA.Domain.Mappings.ToDo.ToDoProfile());
+    cfg.AddProfile(new Domain.Mappings.ToDoProfile());
 });
 
 var mapper = config.CreateMapper();

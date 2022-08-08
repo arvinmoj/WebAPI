@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace WA.Domain.Models.Base;
+namespace Models.Base;
 
 public class BaseEntity : Object
 {

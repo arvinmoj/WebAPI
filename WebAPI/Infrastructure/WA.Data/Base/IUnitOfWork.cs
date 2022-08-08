@@ -8,5 +8,5 @@ public interface IUnitOfWork : System.IDisposable
 
     System.Threading.Tasks.Task SaveAsync();
 
-    Repository<T> GetRepository<T>() where T : WA.Domain.Models.Base.BaseEntity;
+    Repository<T> GetRepository<T>() where T : Models.Base.BaseEntity;
 }

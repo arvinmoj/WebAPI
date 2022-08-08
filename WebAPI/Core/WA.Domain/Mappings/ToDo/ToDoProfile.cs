@@ -1,10 +1,10 @@
-namespace WA.Domain.Mappings.ToDo;
+namespace Domain.Mappings;
 
 public class ToDoProfile : AutoMapper.Profile
 {
     public ToDoProfile() : base()
     {
-        CreateMap<DTOs.ToDo.ToDoViewModel, Models.ToDo.ToDoModel>();
-        CreateMap<Models.ToDo.ToDoModel, DTOs.ToDo.ToDoViewModel>();
+        CreateMap<DTOs.ToDo.ToDoViewModel, Models.ToDoModel>();
+        CreateMap<Models.ToDoModel, DTOs.ToDo.ToDoViewModel>();
     }
 }

@@ -1,4 +1,4 @@
-using WA.Domain.Models.ToDo;
+using Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WA.API.Controllers;

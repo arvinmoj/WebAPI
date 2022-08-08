@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace WA.Domain.DTOs.ToDo;
+namespace DTOs.ToDo;
 
 public class ToDoViewModel : Base.BaseViewModel
 {

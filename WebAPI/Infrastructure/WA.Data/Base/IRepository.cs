@@ -1,6 +1,6 @@
 ﻿namespace Data.Base;
 
-public interface IRepository<T> where T : WA.Domain.Models.Base.BaseEntity
+public interface IRepository<T> where T : Models.Base.BaseEntity
 {
     void Insert(T entity);
 

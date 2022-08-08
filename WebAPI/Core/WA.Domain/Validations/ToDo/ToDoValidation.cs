@@ -1,7 +1,7 @@
 using FluentValidation;
 
 namespace WA.Domain.Validations.ToDo;
-public class ToDoValidation : AbstractValidator<Models.ToDo.ToDoModel>
+public class ToDoValidation : AbstractValidator<Models.ToDoModel>
 {
     public ToDoValidation() : base()
     {

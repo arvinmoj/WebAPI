@@ -2,7 +2,7 @@
 
 namespace Data.Base;
 
-public class Repository<T> : object, IRepository<T> where T : WA.Domain.Models.Base.BaseEntity
+public class Repository<T> : object, IRepository<T> where T : Models.Base.BaseEntity
 {
     internal Repository(DatabaseContext databaseContext) : base()
     {

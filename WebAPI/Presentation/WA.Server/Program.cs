@@ -26,33 +26,33 @@ builder.Services.AddControllers()
 ;
 
 // Database Context
-builder.Services.AddDbContext<Data.DatabaseContext>(options =>
-{
-    options.UseSqlServer
-        (builder.Configuration.GetConnectionString("MyConnectionString"));
-});
+// builder.Services.AddDbContext<Data.DatabaseContext>(options =>
+// {
+//     options.UseSqlServer
+//         (builder.Configuration.GetConnectionString("MyConnectionString"));
+// });
 
 // builder.Services.AddTransient<Data.IUnitOfWork, Data.UnitOfWork>();
 
-// builder.Services.AddTransient<Data.IUnitOfWork, Data.UnitOfWork>(sp =>
-//             {
-//                 Utility.Tools.Options options =
-//                     new Utility.Tools.Options
-//                     {
-//                         Provider =
-//                             (Utility.Tools.Enums.Provider)
-//                             System.Convert.ToInt32(builder.Configuration.GetSection(key: "databaseProvider").Value),
+builder.Services.AddTransient<Data.IUnitOfWork, Data.UnitOfWork>(sp =>
+            {
+                Utility.Tools.Options options =
+                    new Utility.Tools.Options
+                    {
+                        Provider =
+                            (Utility.Tools.Enums.Provider)
+                            System.Convert.ToInt32(builder.Configuration.GetSection(key: "databaseProvider").Value),
 
-//                         //using Microsoft.EntityFrameworkCore;
-//                         ConnectionString =
-//                             builder.Configuration.GetConnectionString("MyConnectionString"),
+                        //using Microsoft.EntityFrameworkCore;
+                        // ConnectionString =
+                        //     builder.Configuration.GetConnectionString("MyConnectionString"),
 
-//                         // ConnectionString =
-//                         //     builder.Configuration.GetSection(key: "ConnectionStrings").GetSection(key: "MyConnectionString").Value,
-//                     };
+                        ConnectionString =
+                            builder.Configuration.GetSection(key: "ConnectionStrings").GetSection(key: "MyConnectionString").Value,
+                    };
 
-//                 return new Data.UnitOfWork(options: options);
-//             });
+                return new Data.UnitOfWork(options: options);
+            });
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

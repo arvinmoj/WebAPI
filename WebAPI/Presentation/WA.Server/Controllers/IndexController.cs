@@ -1,32 +1,49 @@
 using Models;
 using Microsoft.AspNetCore.Mvc;
-
+using Data;
 namespace WA.API.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class IndexController : ControllerBase
+public class IndexController : Infrastructure.BaseApiControllerWithDatabase
 {
-    protected ILogger<IndexController> _logger { get; }
 
-    public IndexController(ILogger<IndexController> logger)
+    public IndexController(IUnitOfWork unitOfWork) : base(unitOfWork)
     {
-        _logger = logger;
     }
 
-    [HttpGet(Name = "Index")]
-    public IActionResult Get()
+    [HttpGet("GetAll")]
+    public
+    async Task<ActionResult<IEnumerable<Models.ToDoModel>>> GetAllAsync()
     {
-        return Ok();
+        var result =
+            await UnitOfWork.ToDoRepository.GetAllAsync();
+
+        return Ok(value: result);
     }
 
-    //[HttpPost]
-    [HttpPost(template: "CheckValidation")]
-    public IActionResult CheckValidation([FromBody] ToDoModel todo)
+    [HttpPost]
+    public
+    async Task<ActionResult<Models.ToDoModel>> PostAsync(DTOs.ToDo.ToDoViewModel viewModel)
     {
-        string message =
-            $"Title: , {todo.Title}!";
+        try
+        {
+          var newEntity =
+            new Models.ToDoModel
+            {
+                Title = viewModel.Title,
+                State = viewModel.State,
+                Description = viewModel.Description,
+            };   
 
-        return Ok(value: message);
+            await UnitOfWork.ToDoRepository.InsertAsync(newEntity);
+            await UnitOfWork.SaveAsync();
+
+            return Ok(value: newEntity);
+        }
+        catch (System.Exception)
+        {
+            return Ok(value: null);
+        }
     }
 }

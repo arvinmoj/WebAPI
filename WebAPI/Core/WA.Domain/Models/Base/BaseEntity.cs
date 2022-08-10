@@ -7,7 +7,7 @@ public class BaseEntity : Object
 {
     public BaseEntity() : base()
     {
-        Id = new Guid();
+        Id = Guid.NewGuid();
         InsertDateTime = Utility.DateTime.Now;
     }
 

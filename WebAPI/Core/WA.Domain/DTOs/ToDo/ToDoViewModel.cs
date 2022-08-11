@@ -12,6 +12,6 @@ public class ToDoViewModel : Base.BaseViewModel
 
     public string Description { get; set; }
 
-    public Enumerations.ToDo.States? State { get; set; }
+    public Enumerations.ToDo.States State { get; set; }
 
 }

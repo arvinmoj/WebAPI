@@ -1,4 +1,5 @@
 using AutoMapper;
+using System.Reflection;
 using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -53,6 +54,13 @@ builder.Services.AddTransient<Data.IUnitOfWork, Data.UnitOfWork>(sp =>
 
                 return new Data.UnitOfWork(options: options);
             });
+
+// builder.Services.Scan(current => current
+//                         .FromAssemblies(typeof(Service.ToDo.ToDoService).GetTypeInfo().Assembly)
+//                         .AddClasses(theClass => theClass.InExactNamespaceOf<Service.ToDo.ToDoService>())
+//                         .AsSelf()
+//                         .AsImplementedInterfaces()
+//                         .WithTransientLifetime());
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

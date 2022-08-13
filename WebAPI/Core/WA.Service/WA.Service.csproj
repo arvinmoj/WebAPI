@@ -9,5 +9,6 @@
   <ItemGroup>
     <ProjectReference Include="..\WA.Domain\WA.Domain.csproj" />
     <ProjectReference Include="..\WA.Utility\WA.Utility.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\WA.Data\WA.Data.csproj" />
   </ItemGroup>
 </Project>

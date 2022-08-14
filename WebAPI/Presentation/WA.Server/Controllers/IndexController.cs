@@ -8,11 +8,14 @@ namespace WA.API.Controllers;
 [Route("[controller]")]
 public class IndexController : Infrastructure.BaseApiControllerWithDatabase
 {
-    public IndexController(IUnitOfWork unitOfWork, IMapper mapper) : base(unitOfWork)
+    public IndexController(IUnitOfWork unitOfWork, IMapper mapper, Utility.Logging.ILogger<IndexController> logger) : base(unitOfWork)
     {
         Mapper = mapper;
+        Logger = logger;
     }
+
     protected IMapper Mapper { get; }
+    protected Utility.Logging.ILogger<IndexController> Logger { get; }
 
 
     [HttpGet(template: "GetById")]
@@ -28,6 +31,23 @@ public class IndexController : Infrastructure.BaseApiControllerWithDatabase
     public
     async Task<ActionResult<IEnumerable<Models.ToDoModel>>> GetAllAsync()
     {
+
+
+        // **************************************************
+
+        Exception innerException = new System.Exception(message: "Inner Exception Message (1)");
+
+        Exception exception = new System.Exception(message: "Exception Message (1)", innerException: innerException);
+
+        System.Collections.Hashtable hashtable = new System.Collections.Hashtable();
+
+        hashtable.Add(key: "Key1", value: "Value1");
+
+        hashtable.Add(key: "Key2", value: "Value2");
+
+        Logger.LogCritical(exception: exception, message: "Fatal 1", parameters: hashtable);
+
+        // **************************************************
         var result =
             await UnitOfWork.ToDoRepository.GetAllAsync();
 
@@ -39,8 +59,8 @@ public class IndexController : Infrastructure.BaseApiControllerWithDatabase
     {
         try
         {
-           Models.ToDoModel toDoModel=
-                Mapper.Map<Models.ToDoModel>(source: viewModel);
+            Models.ToDoModel toDoModel =
+                 Mapper.Map<Models.ToDoModel>(source: viewModel);
 
             await UnitOfWork.ToDoRepository.InsertAsync(toDoModel);
             await UnitOfWork.SaveAsync();
@@ -58,7 +78,7 @@ public class IndexController : Infrastructure.BaseApiControllerWithDatabase
     {
         try
         {
-            Models.ToDoModel toDoModel=
+            Models.ToDoModel toDoModel =
                 Mapper.Map<Models.ToDoModel>(source: viewModel);
 
             await UnitOfWork.ToDoRepository.UpdateAsync(toDoModel);
@@ -94,7 +114,7 @@ public class IndexController : Infrastructure.BaseApiControllerWithDatabase
     {
         try
         {
-            Models.ToDoModel toDoModel=
+            Models.ToDoModel toDoModel =
                 Mapper.Map<Models.ToDoModel>(source: viewModel);
 
             await UnitOfWork.ToDoRepository.DeleteAsync(toDoModel);

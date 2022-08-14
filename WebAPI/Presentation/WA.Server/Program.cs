@@ -26,6 +26,10 @@ builder.Services.AddControllers()
                 });
 ;
 
+builder.Services.AddTransient
+    (serviceType: typeof(Utility.Logging.ILogger<>),
+    implementationType: typeof(Utility.Logging.NLogAdapter<>));
+
 // Database Context
 // builder.Services.AddDbContext<Data.DatabaseContext>(options =>
 // {
